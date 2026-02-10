@@ -224,7 +224,7 @@ npm run start:prod
 ## Notes
 
 - Semua halaman menggunakan server-side rendering (SSR) dengan Handlebars
-- Session disimpan di memory (untuk production, gunakan Redis atau database)
+- Session disimpan di memory
 - Styling menggunakan Tailwind CSS via CDN
 - Pattern MVC diterapkan dengan jelas:
   - **Model**: Prisma schema & services

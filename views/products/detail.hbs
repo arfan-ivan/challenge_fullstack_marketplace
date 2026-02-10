@@ -1,0 +1,158 @@
+
+{{#if user}}
+  {{#if (eq user.role 'admin')}}
+    {{> navbar}}
+  {{else}}
+    {{> customer-navbar}}
+  {{/if}}
+{{else}}
+  <nav class="bg-white shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <div class="flex items-center">
+                <a href="/" class="text-xl font-bold text-gray-900">🛒 Marketplace</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="/auth/login" class="text-sm text-gray-700 hover:text-gray-900">Login</a>
+                <a href="/auth/register" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm">Register</a>
+            </div>
+        </div>
+    </div>
+  </nav>
+{{/if}}
+
+<div class="max-w-4xl mx-auto py-6 sm:px-6 lg:px-8">
+    <div class="px-4 py-6 sm:px-0">
+        <div class="mb-6">
+            {{#if user}}
+              {{#if (eq user.role 'admin')}}
+                <a href="/admin/products" class="text-blue-600 hover:text-blue-800 text-sm">← Back to Products</a>
+              {{else}}
+                <a href="/" class="text-blue-600 hover:text-blue-800 text-sm">← Back to Shopping</a>
+              {{/if}}
+            {{else}}
+              <a href="/" class="text-blue-600 hover:text-blue-800 text-sm">← Back to Shopping</a>
+            {{/if}}
+        </div>
+
+        <div class="bg-white shadow rounded-lg">
+            <div class="px-4 py-5 sm:p-6">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900">{{product.name}}</h2>
+                        <p class="text-sm text-gray-500 mt-1">Added on {{formatDate product.createdAt}}</p>
+                    </div>
+                    
+                    {{#if user}}
+                      {{#if (eq user.role 'admin')}}
+                        <div class="space-x-2">
+                            <a href="/admin/products/{{product.id}}/edit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                                Edit
+                            </a>
+                            <form action="/admin/products/{{product.id}}/delete" method="POST" class="inline" onsubmit="return confirm('Are you sure?');">
+                                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                                    Delete
+                                </button>
+                            </form>
+                        </div>
+                      {{/if}}
+                    {{/if}}
+                </div>
+
+                {{#if product.imageUrl}}
+                <div class="mb-6">
+                    <img src="{{product.imageUrl}}" alt="{{product.name}}" class="w-full h-64 object-cover rounded-lg">
+                </div>
+                {{/if}}
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500">Seller</h3>
+                        <p class="mt-1 text-sm text-gray-900">
+                            {{#if user}}
+                              {{#if (eq user.role 'admin')}}
+                                <a href="/admin/sellers/{{product.seller.id}}" class="text-blue-600 hover:text-blue-800">
+                                    {{product.seller.name}}
+                                </a>
+                              {{else}}
+                                {{product.seller.name}}
+                              {{/if}}
+                            {{else}}
+                              {{product.seller.name}}
+                            {{/if}}
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500">Category</h3>
+                        <p class="mt-1">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                {{product.category}}
+                            </span>
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500">Price</h3>
+                        <p class="mt-1 text-lg font-bold text-gray-900">{{formatPrice product.price}}</p>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-medium text-gray-500">Stock</h3>
+                        <p class="mt-1 text-sm text-gray-900">{{product.stock}} units</p>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h3 class="text-sm font-medium text-gray-500">Description</h3>
+                        <p class="mt-1 text-sm text-gray-900">{{product.description}}</p>
+                    </div>
+                </div>
+
+                {{#if user}}
+                  {{#if (eq user.role 'customer')}}
+                    {{#if (gt product.stock 0)}}
+                      <div class="mt-6 pt-6 border-t border-gray-200">
+                          <form action="/cart/add/{{product.id}}" method="POST" class="flex items-center space-x-4">
+                              <label for="quantity" class="text-sm font-medium text-gray-700">Quantity:</label>
+                              <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{product.stock}}"
+                                     class="w-20 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                              <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-sm font-medium">
+                                  🛒 Add to Cart
+                              </button>
+                          </form>
+                      </div>
+                    {{else}}
+                      <div class="mt-6 pt-6 border-t border-gray-200">
+                          <p class="text-red-600 font-medium">Out of Stock</p>
+                      </div>
+                    {{/if}}
+                  {{/if}}
+                {{else}}
+                  <div class="mt-6 pt-6 border-t border-gray-200 bg-blue-50 p-4 rounded-lg">
+                      <p class="text-sm text-blue-700 mb-2">Want to purchase this product?</p>
+                      <a href="/auth/login" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md text-sm font-medium inline-block">
+                          Login to Add to Cart
+                      </a>
+                  </div>
+                {{/if}}
+
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <h3 class="text-sm font-medium text-gray-500 mb-4">Seller Information</h3>
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-xs text-gray-500">Email</p>
+                                <p class="text-sm text-gray-900">{{product.seller.email}}</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500">Phone</p>
+                                <p class="text-sm text-gray-900">{{product.seller.phone}}</p>
+                            </div>
+                            <div class="md:col-span-2">
+                                <p class="text-xs text-gray-500">Address</p>
+                                <p class="text-sm text-gray-900">{{product.seller.address}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                

@@ -4,26 +4,26 @@ Sistem admin panel untuk marketplace e-commerce yang dibangun dengan NestJS, Pri
 
 ## Fitur
 
-✅ **Autentikasi & Otorisasi**
+**Autentikasi & Otorisasi**
 - Login system dengan session management
 - Protected admin routes
 
-✅ **Manajemen Sellers**
+**Manajemen Sellers**
 - CRUD operations untuk sellers
 - Daftar sellers dengan fitur pencarian
 - Detail seller dengan daftar produk mereka
 
-✅ **Manajemen Products**
+**Manajemen Products**
 - CRUD operations untuk products
 - Relasi one-to-many dengan sellers
 - Daftar products dengan fitur pencarian
 - Detail product dengan informasi seller
 
-✅ **Dashboard Admin**
+**Dashboard Admin**
 - Statistik total sellers dan products
 - Recent activity (sellers & products terbaru)
 
-✅ **Pattern MVC**
+**Pattern MVC**
 - Model: Prisma Schema
 - View: Handlebars templates
 - Controller: NestJS Controllers

@@ -88,7 +88,7 @@ Platform E-Commerce Marketplace adalah pasar online lengkap yang dibangun dengan
 
 ## Desain Database
 
-### Diagram Hubungan Entitas
+### Entity Relationship Diagram (ERD)
 
 ![Homepage](public/Untitled.svg)
 
@@ -159,35 +159,35 @@ Platform E-Commerce Marketplace adalah pasar online lengkap yang dibangun dengan
 - **price**: Decimal(10,2), Diperlukan (snapshot harga saat pemesanan)
 - **createdAt**: DateTime, Otomatis dihasilkan
 
-### Hubungan
+### Relasi Antar Entitas
 
-1. **Penjual ke Produk**: Satu-ke-Banyak
-   - Satu penjual dapat memiliki beberapa produk
-   - Hapus cascade: Menghapus penjual menghapus semua produk mereka
+1. **Penjual ke Produk**: One-to-Many (1:N)
+   - Satu penjual dapat memiliki banyak produk
+   - Aturan penghapusan: ON DELETE CASCADE
 
-2. **Pengguna ke Keranjang**: Satu-ke-Satu
-   - Setiap pengguna memiliki satu keranjang
-   - Hapus cascade: Menghapus pengguna menghapus keranjang mereka
+2. **Pengguna ke Keranjang**: One-to-One (1:1)
+   - Setiap pengguna memiliki tepat satu keranjang
+   - Aturan penghapusan: ON DELETE CASCADE
 
-3. **Keranjang ke CartItems**: Satu-ke-Banyak
-   - Satu keranjang dapat memiliki beberapa item keranjang
-   - Hapus cascade: Menghapus keranjang menghapus semua item keranjang
+3. **Keranjang ke CartItems**: One-to-Many (1:N)
+   - Satu keranjang dapat berisi banyak item keranjang
+   - Aturan penghapusan: ON DELETE CASCADE
 
-4. **Produk ke CartItems**: Satu-ke-Banyak
-   - Satu produk dapat berada di berbagai keranjang
-   - Hapus cascade: Menghapus produk menghapusnya dari semua keranjang
+4. **Produk ke CartItems**: One-to-Many (1:N)
+   - Satu produk dapat muncul di banyak item keranjang
+   - Aturan penghapusan: ON DELETE CASCADE
 
-5. **Pengguna ke Pesanan**: Satu-ke-Banyak
-   - Satu pengguna dapat memiliki beberapa pesanan
-   - Hapus cascade: Menghapus pengguna menghapus pesanan mereka
+5. **Pengguna ke Pesanan**: One-to-Many (1:N)
+   - Satu pengguna dapat membuat banyak pesanan
+   - Aturan penghapusan: ON DELETE CASCADE
 
-6. **Pesanan ke OrderItems**: Satu-ke-Banyak
-   - Satu pesanan berisi beberapa item pesanan
-   - Hapus cascade: Menghapus pesanan menghapus semua item pesanan
+6. **Pesanan ke OrderItems**: One-to-Many (1:N)
+   - Satu pesanan terdiri dari banyak item pesanan
+   - Aturan penghapusan: ON DELETE CASCADE
 
-7. **Produk ke OrderItems**: Satu-ke-Banyak
-   - Satu produk dapat berada di beberapa pesanan
-   - Tidak ada hapus cascade: Item pesanan mempertahankan referensi produk
+7. **Produk ke OrderItems**: One-to-Many (1:N)
+   - Satu produk dapat tercatat pada banyak item pesanan
+   - Aturan penghapusan: ON DELETE RESTRICT / NO ACTION
 
 ---
 
@@ -203,8 +203,8 @@ Platform E-Commerce Marketplace adalah pasar online lengkap yang dibangun dengan
 
 1. Kloning repositori
 ```bash
-git clone https://github.com/yourusername/marketplace-admin.git
-cd marketplace-admin
+git clone https://github.com/arfan-ivan/challenge_fullstack_marketplace.git
+cd challenge_fullstack_marketplace
 ```
 
 2. Instal dependensi
@@ -312,7 +312,7 @@ npm run prisma:seed
 ## Struktur Proyek
 
 ```
-marketplace-admin/
+challenge_fullstack_marketplace/
 ├── prisma/
 │   ├── schema.prisma
 │   └── seed.ts
@@ -932,7 +932,7 @@ await app.listen(3001);
 
 **Akun Admin** (dari seed):
 ```
-Email: admin@marketplace.com
+Email: admin@gmail.com
 Kata Sandi: admin123
 ```
 

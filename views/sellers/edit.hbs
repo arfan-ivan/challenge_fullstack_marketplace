@@ -3,16 +3,16 @@
 <div class="max-w-3xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="px-4 py-6 sm:px-0">
         <div class="mb-6">
-            <a href="/admin/sellers" class="text-blue-600 hover:text-blue-800 text-sm">← Back to Sellers</a>
+            <a href="/admin/sellers" class="text-blue-600 hover:text-blue-800 text-sm">← Kembali ke Penjual</a>
         </div>
 
         <div class="bg-white shadow rounded-lg">
             <div class="px-4 py-5 sm:p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-6">Edit Seller</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-6">Edit Penjual</h2>
                 
                 <form action="/admin/sellers/{{seller.id}}/edit" method="POST" class="space-y-6">
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Name *</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Nama *</label>
                         <input type="text" 
                                name="name" 
                                id="name" 
@@ -32,7 +32,7 @@
                     </div>
 
                     <div>
-                        <label for="phone" class="block text-sm font-medium text-gray-700">Phone *</label>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Telepon *</label>
                         <input type="text" 
                                name="phone" 
                                id="phone" 
@@ -42,7 +42,7 @@
                     </div>
 
                     <div>
-                        <label for="address" class="block text-sm font-medium text-gray-700">Address *</label>
+                        <label for="address" class="block text-sm font-medium text-gray-700">Alamat *</label>
                         <textarea name="address" 
                                   id="address" 
                                   rows="3" 
@@ -51,7 +51,7 @@
                     </div>
 
                     <div>
-                        <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                        <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
                         <textarea name="description" 
                                   id="description" 
                                   rows="4"
@@ -60,10 +60,10 @@
 
                     <div class="flex justify-end space-x-3">
                         <a href="/admin/sellers" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-md text-sm font-medium">
-                            Cancel
+                            Batal
                         </a>
                         <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
-                            Update Seller
+                            Perbarui Penjual
                         </button>
                     </div>
                 </form>

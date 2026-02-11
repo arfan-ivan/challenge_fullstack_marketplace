@@ -1,9 +1,8 @@
-
 {{> customer_navbar}}
 
 <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="px-4 py-6 sm:px-0">
-        <h1 class="text-2xl font-bold text-gray-900 mb-6">Shopping Cart</h1>
+        <h1 class="text-2xl font-bold text-gray-900 mb-6">Keranjang Belanja</h1>
 
         {{#if cart.items.length}}
         <div class="bg-white shadow overflow-hidden rounded-lg">
@@ -56,7 +55,7 @@
                     <div>
                         <form action="/cart/clear" method="POST" class="inline" onsubmit="return confirm('Clear all items?');">
                             <button type="submit" class="text-red-600 hover:text-red-800 text-sm font-medium">
-                                Clear Cart
+                                Kosongkan Keranjang
                             </button>
                         </form>
                     </div>
@@ -66,7 +65,7 @@
                             <p class="text-2xl font-bold text-gray-900">{{formatPrice total}}</p>
                         </div>
                         <a href="/orders/checkout" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-sm font-medium">
-                            Proceed to Checkout
+                            Lanjut ke Pembayaran
                         </a>
                     </div>
                 </div>
@@ -77,15 +76,14 @@
             <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
             </svg>
-            <h3 class="mt-2 text-lg font-medium text-gray-900">Your cart is empty</h3>
-            <p class="mt-1 text-sm text-gray-500">Start shopping to add items to your cart.</p>
+            <h3 class="mt-2 text-lg font-medium text-gray-900">Keranjang Anda kosong</h3>
+            <p class="mt-1 text-sm text-gray-500">Mulai berbelanja untuk menambahkan item ke keranjang Anda.</p>
             <div class="mt-6">
                 <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md text-sm font-medium">
-                    Continue Shopping
+                    Lanjutkan Berbelanja
                 </a>
             </div>
         </div>
         {{/if}}
     </div>
 </div>
-                

@@ -1,13 +1,12 @@
-
 {{> customer_navbar}}
 
 <div class="max-w-4xl mx-auto py-6 sm:px-6 lg:px-8">
     <div class="px-4 py-6 sm:px-0">
-        <h1 class="text-2xl font-bold text-gray-900 mb-6">Checkout</h1>
+        <h1 class="text-2xl font-bold text-gray-900 mb-6">Pembayaran</h1>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div class="bg-white shadow rounded-lg p-6">
-                <h2 class="text-lg font-medium text-gray-900 mb-4">Order Summary</h2>
+                <h2 class="text-lg font-medium text-gray-900 mb-4">Ringkasan Pesanan</h2>
                 <div class="space-y-4">
                     {{#each cart.items}}
                     <div class="flex justify-between">
@@ -30,10 +29,10 @@
             </div>
 
             <div class="bg-white shadow rounded-lg p-6">
-                <h2 class="text-lg font-medium text-gray-900 mb-4">Shipping Information</h2>
+                <h2 class="text-lg font-medium text-gray-900 mb-4">Informasi Pengiriman</h2>
                 <form action="/orders/checkout" method="POST" class="space-y-4">
                     <div>
-                        <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
                         <input type="text" id="name" value="{{user.name}}" disabled
                                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50">
                     </div>
@@ -43,7 +42,7 @@
                                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50">
                     </div>
                     <div>
-                        <label for="shippingAddress" class="block text-sm font-medium text-gray-700">Shipping Address *</label>
+                        <label for="shippingAddress" class="block text-sm font-medium text-gray-700">Alamat Pengiriman *</label>
                         <textarea id="shippingAddress" name="shippingAddress" rows="3" required
                                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">{{user.address}}</textarea>
                     </div>
@@ -51,10 +50,10 @@
                     <div class="pt-4">
                         <button type="submit" 
                                 class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md">
-                            Place Order
+                            Tempatkan Pesanan
                         </button>
                         <a href="/cart" class="block text-center mt-3 text-sm text-gray-600 hover:text-gray-800">
-                            ← Back to Cart
+                            ← Kembali ke Keranjang
                         </a>
                     </div>
                 </form>
@@ -62,4 +61,3 @@
         </div>
     </div>
 </div>
-                

@@ -3,7 +3,7 @@ import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class CartService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
   async getOrCreateCart(userId: number) {
     let cart = await this.prisma.cart.findUnique({
@@ -101,12 +101,27 @@ export class CartService {
 
   async getCartTotal(userId: number): Promise<number> {
     const cart = await this.getOrCreateCart(userId);
-    
+
     let total = 0;
     for (const item of cart.items) {
       total += Number(item.product.price) * item.quantity;
     }
-    
+
     return total;
+  }
+  
+  async getCartItemCount(userId: number): Promise<number> {
+    const cart = await this.prisma.cart.findUnique({
+      where: { userId },
+      select: {
+        items: {
+          select: { quantity: true },
+        },
+      },
+    });
+
+    if (!cart) return 0;
+
+    return cart.items.reduce((sum, i) => sum + i.quantity, 0);
   }
 }

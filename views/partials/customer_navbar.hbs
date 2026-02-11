@@ -1,4 +1,3 @@
-
 <nav class="bg-white shadow-sm border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -7,14 +6,24 @@
                     <a href="/" class="text-xl font-bold text-gray-900">Marketplace</a>
                 </div>
                 <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                    <a href="/" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                    <a href="/"
+                        class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                         Home
                     </a>
-                    <a href="/cart" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        Cart
+                    <a href="/cart"
+                        class="relative border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Keranjang
+
+                        {{#if cartCount}}
+                        <span class="absolute top-[1rem] -right-3 bg-red-500 text-white text-xs font-bold
+             rounded-full px-1.5 min-w-[18px] text-center">
+                            {{cartCount}}
+                        </span>
+                        {{/if}}
                     </a>
-                    <a href="/orders" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                        My Orders
+                    <a href="/orders"
+                        class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                        Check out
                     </a>
                 </div>
             </div>

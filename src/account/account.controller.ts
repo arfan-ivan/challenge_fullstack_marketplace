@@ -47,7 +47,6 @@ export class AccountController {
         },
       });
 
-      // Update session
       const { password, ...userWithoutPassword } = updatedUser;
       session.user = userWithoutPassword;
 

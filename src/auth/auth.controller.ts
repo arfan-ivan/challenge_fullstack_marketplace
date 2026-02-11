@@ -28,7 +28,6 @@ export class AuthController {
       const user = await this.authService.login(body.email, body.password);
       session.user = user;
       
-      // Redirect based on role
       if (user.role === 'admin') {
         return res.redirect('/admin/dashboard');
       } else {
@@ -69,7 +68,6 @@ export class AuthController {
         body.address
       );
       
-      // Auto login after register
       const { password, ...userWithoutPassword } = user;
       session.user = userWithoutPassword;
       

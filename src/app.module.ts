@@ -22,6 +22,7 @@ import { AccountModule } from './account/account.module';
     SellersModule,
     ProductsModule,
     CartModule,
+    CartModule,
     OrdersModule,
     AccountModule,
   ],

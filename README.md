@@ -738,6 +738,8 @@ Halaman detail untuk order tertentu.
 
 **URL**: `http://localhost:3000/orders/:id`
 
+![GAMBAR PREVIEW](public/26551.png)
+
 ---
 
 ### 13. User Profile (Customer)
@@ -751,6 +753,8 @@ Halaman profile management untuk customer.
 - Link ke change password page
 
 **URL**: `http://localhost:3000/account/profile`
+
+![GAMBAR PREVIEW](public/26951.png)
 
 ---
 
@@ -766,6 +770,8 @@ Halaman untuk update password customer.
 - Link kembali ke profile page
 
 **URL**: `http://localhost:3000/account/change-password`
+
+![GAMBAR PREVIEW](public/27951.png)
 
 ---
 

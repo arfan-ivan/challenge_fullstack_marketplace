@@ -32,6 +32,7 @@ Platform E-Commerce Marketplace adalah pasar online lengkap yang dibangun dengan
 - Panel admin untuk mengelola penjual dan produk
 - Desain responsif menggunakan Tailwind CSS
 
+![GAMBAR PREVIEW](public/11211.png)
 ---
 
 ## Fitur
@@ -70,7 +71,6 @@ Fitur-fitur yang tersedia untuk mendukung keseluruhan sistem:
 
 ### Backend
 - **Framework**: NestJS 11.x  
-  Framework Node.js untuk membangun aplikasi backend yang terstruktur dan modular
 - **Bahasa Pemrograman**: TypeScript 5.x
 - **ORM**: Prisma 5.x  
   Digunakan untuk pemodelan database dan manajemen query

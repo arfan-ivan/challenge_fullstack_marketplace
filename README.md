@@ -500,28 +500,38 @@ POST /admin/products/:id/delete
 
 ## Peran Pengguna
 
-### Peran Admin
-- **Akses**: Akses penuh ke panel admin
-- **Kemampuan**:
-  - Kelola semua penjual (operasi CRUD)
-  - Kelola semua produk (operasi CRUD)
-  - Lihat dasbor dengan statistik
-  - Cari penjual dan produk
-- **Kredensial Default** (dari seed):
-  - Email: admin@gmail.com
-  - Kata Sandi: admin123
+Aplikasi ini memiliki dua jenis peran pengguna dengan hak akses dan fitur yang berbeda.
 
-### Peran Pelanggan
-- **Akses**: Fitur menghadap pelanggan
-- **Kemampuan**:
-  - Jelajahi katalog produk
-  - Cari produk
-  - Tambahkan produk ke keranjang
-  - Kelola item keranjang
-  - Buat pesanan
-  - Lihat riwayat pesanan
-  - Kelola profil
-- **Pendaftaran**: Pendaftaran mandiri melalui /auth/register
+### Admin
+
+Admin memiliki akses penuh ke panel administrasi dan bertanggung jawab atas pengelolaan data di dalam sistem.
+
+Fitur yang tersedia untuk admin:
+- Mengelola data penjual (tambah, lihat, ubah, dan hapus)
+- Mengelola data produk (tambah, lihat, ubah, dan hapus)
+- Mencari data penjual dan produk
+
+Akun admin sudah disediakan secara default melalui proses *seeding*:
+- **Email**: admin@gmail.com  
+- **Kata sandi**: admin123  
+
+---
+
+### Pelanggan
+
+Pelanggan adalah pengguna yang menggunakan aplikasi untuk berbelanja dan melakukan transaksi.
+
+Fitur yang tersedia untuk pelanggan:
+- Menjelajahi katalog produk
+- Mencari produk
+- Menambahkan produk ke keranjang
+- Mengelola item di keranjang
+- Membuat pesanan
+- Melihat riwayat pesanan
+- Mengelola profil akun
+
+Pelanggan dapat mendaftar secara mandiri melalui endpoint berikut:
+    `/auth/register`
 
 ---
 

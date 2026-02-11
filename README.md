@@ -219,7 +219,6 @@ Fitur-fitur yang tersedia untuk mendukung keseluruhan sistem:
 
 Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal.
 
----
 
 **1. Kloning repositori**
 
@@ -228,7 +227,6 @@ git clone https://github.com/arfan-ivan/challenge_fullstack_marketplace.git
 cd challenge_fullstack_marketplace
 ```
 
----
 
 **2. Instal dependensi**
 
@@ -236,7 +234,6 @@ cd challenge_fullstack_marketplace
 npm install
 ```
 
----
 
 **3. Buat database MySQL**
 
@@ -248,7 +245,6 @@ CREATE DATABASE marketplace_db;
 EXIT;
 ```
 
----
 
 **4. Konfigurasi variabel lingkungan**
 
@@ -260,7 +256,6 @@ cp .env.example .env
 
 Pastikan nilai `DATABASE_URL` di file `.env` sudah benar.
 
----
 
 **5. Jalankan migrasi database**
 
@@ -274,7 +269,6 @@ Perintah ini akan:
 npx prisma migrate dev
 ```
 
----
 
 **6. Seed database (opsional)**
 
@@ -284,7 +278,6 @@ Jika tersedia data awal (seed), jalankan perintah berikut:
 npm run prisma:seed
 ```
 
----
 
 ***Catatan***
 

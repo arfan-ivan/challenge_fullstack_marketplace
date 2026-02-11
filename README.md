@@ -90,7 +90,7 @@ Platform E-Commerce Marketplace adalah pasar online lengkap yang dibangun dengan
 
 ### Diagram Hubungan Entitas
 
-![Homepage](public/Untitled(1).svg)
+![Homepage](public/Untitled.svg)
 
 ### Skema Database
 

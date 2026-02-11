@@ -535,214 +535,214 @@ Pelanggan dapat mendaftar secara mandiri melalui endpoint berikut:
 
 ---
 
-## Tangkapan Layar
+## Screenshots
 
-### 1. Halaman Mendarat
-Halaman katalog produk utama yang dapat diakses oleh semua pengguna. Menampilkan produk dalam tata letak grid responsif dengan fungsi pencarian.
+### 1. Landing Page
+Halaman utama katalog produk yang dapat diakses oleh semua users. Menampilkan daftar produk dalam layout grid yang responsif, lengkap dengan fitur search.
 
-**Fitur**:
-- Grid produk dengan gambar, nama, harga, dan kategori
-- Informasi penjual untuk setiap produk
-- Tampilan ketersediaan stok
-- Desain responsif (1-4 kolom berdasarkan ukuran layar)
-- Navigasi bervariasi berdasarkan peran pengguna (masuk/keluar, admin/pelanggan)
+**Features**:
+- Product grid berisi image, name, price, dan category
+- Seller information pada setiap product
+- Stock availability indicator
+- Responsive design (1–4 columns tergantung screen size)
+- Role-based navigation (login/logout, admin/customer)
 
 **URL**: `http://localhost:3000/`
 
 ---
 
-### 2. Halaman Login
-Halaman autentikasi untuk pengguna admin dan pelanggan.
+### 2. Login Page
+Halaman authentication untuk admin dan customer.
 
-**Fitur**:
-- Input email dan kata sandi
-- Tampilan pesan kesalahan untuk kredensial tidak valid
-- Tautan ke halaman pendaftaran
-- Kredensial demo ditampilkan
-- Pengalihan berdasarkan peran pengguna setelah login berhasil
+**Features**:
+- Email dan password input
+- Error message untuk invalid credentials
+- Link ke registration page
+- Demo credentials ditampilkan
+- Role-based redirect setelah login berhasil
 
 **URL**: `http://localhost:3000/auth/login`
 
 ---
 
-### 3. Halaman Pendaftaran
-Halaman pendaftaran pengguna baru untuk pelanggan.
+### 3. Registration Page
+Halaman pendaftaran untuk customer baru.
 
-**Fitur**:
-- Kolom formulir: nama, email, kata sandi, telepon, alamat
-- Validasi formulir
-- Login otomatis setelah pendaftaran berhasil
-- Tautan ke halaman login untuk pengguna yang ada
+**Features**:
+- Form fields: name, email, password, phone, address
+- Form validation
+- Auto login setelah registration berhasil
+- Link ke login page untuk existing users
 
 **URL**: `http://localhost:3000/auth/register`
 
 ---
 
-### 4. Dasbor Admin
-Halaman ikhtisar untuk administrator yang menunjukkan statistik sistem dan aktivitas terbaru.
+### 4. Admin Dashboard
+Overview page untuk administrator yang menampilkan ringkasan sistem dan recent activity.
 
-**Fitur**:
-- Hitungan total penjual
-- Hitungan total produk
-- 5 penjual terbaru
-- 5 produk terbaru dengan informasi penjual
-- Navigasi cepat ke halaman manajemen
+**Features**:
+- Total sellers count
+- Total products count
+- 5 latest sellers
+- 5 latest products dengan seller information
+- Quick navigation ke management pages
 
 **URL**: `http://localhost:3000/admin/dashboard`
 
 ---
 
-### 5. Manajemen Penjual (Admin)
-Antarmuka admin untuk mengelola penjual.
+### 5. Seller Management (Admin)
+Admin interface untuk mengelola data sellers.
 
-**Fitur**:
-- Tampilan tabel semua penjual
-- Fungsi pencarian (nama, email, telepon)
-- Hitungan produk per penjual
-- Operasi CRUD: Lihat, Edit, Hapus
-- Tombol buat penjual baru
+**Features**:
+- Table view semua sellers
+- Search functionality (name, email, phone)
+- Product count per seller
+- CRUD operations: View, Edit, Delete
+- Button untuk create new seller
 
 **URL**: `http://localhost:3000/admin/sellers`
 
 ---
 
-### 6. Halaman Detail Penjual (Admin)
-Tampilan terperinci tentang penjual tertentu dan produk mereka.
+### 6. Seller Detail Page (Admin)
+Halaman detail untuk melihat informasi seller dan daftar produknya.
 
-**Fitur**:
-- Informasi penjual (nama, email, telepon, alamat, deskripsi)
-- Tanggal pendaftaran
-- Daftar semua produk dari penjual ini
-- Tombol edit dan hapus
-- Tautan ke detail produk
+**Features**:
+- Seller information (name, email, phone, address, description)
+- Registration date
+- List semua products milik seller
+- Edit dan delete actions
+- Link ke product detail page
 
 **URL**: `http://localhost:3000/admin/sellers/:id`
 
 ---
 
-### 7. Manajemen Produk (Admin)
-Antarmuka admin untuk mengelola produk.
+### 7. Product Management (Admin)
+Admin interface untuk mengelola data products.
 
-**Fitur**:
-- Tampilan tabel semua produk dengan informasi penjual
-- Fungsi pencarian (nama, deskripsi, kategori)
-- Tampilan harga dalam format Rupiah
-- Informasi stok
-- Lencana kategori
-- Operasi CRUD: Lihat, Edit, Hapus
+**Features**:
+- Table view semua products dengan seller information
+- Search functionality (name, description, category)
+- Price display dalam format Rupiah
+- Stock information
+- Category badges
+- CRUD operations: View, Edit, Delete
 
 **URL**: `http://localhost:3000/admin/products`
 
 ---
 
-### 8. Halaman Detail Produk
-Tampilan terperinci tentang produk tertentu dengan tindakan berbasis peran.
+### 8. Product Detail Page
+Halaman detail product dengan actions yang berbeda berdasarkan user role.
 
-**Untuk Pelanggan**:
-- Informasi produk dengan gambar
-- Detail penjual
-- Fungsi tambah ke keranjang dengan pemilih jumlah
-- Pemberitahuan stok habis
+**For Customers**:
+- Product information lengkap dengan image
+- Seller details
+- Add to cart functionality dengan quantity selector
+- Out-of-stock notification
 
-**Untuk Admin**:
-- Informasi produk yang sama
-- Tombol edit dan hapus
-- Tautan ke halaman detail penjual
+**For Admin**:
+- Product information
+- Edit dan delete buttons
+- Link ke seller detail page
 
-**Untuk Pengguna Tidak Masuk**:
-- Informasi produk terlihat
-- Ajakan untuk login untuk membeli
+**For Guest Users**:
+- Product information tetap dapat dilihat
+- Call-to-action untuk login sebelum membeli
 
-**URL**: `http://localhost:3000/admin/products/:id`
+**URL**: `http://localhost:3000/products/:id`
 
 ---
 
-### 9. Keranjang Belanja (Pelanggan)
-Halaman keranjang belanja pelanggan.
+### 9. Shopping Cart (Customer)
+Halaman cart untuk customer.
 
-**Fitur**:
-- Daftar item keranjang dengan gambar produk
-- Penyesuaian jumlah per item
-- Tombol hapus item
-- Perhitungan harga per item dan total
-- Opsi kosongkan keranjang
-- Tombol lanjut ke checkout
-- Status keranjang kosong dengan ajakan bertindak
+**Features**:
+- Cart items list dengan product image
+- Quantity adjustment per item
+- Remove item button
+- Price calculation per item dan total
+- Clear cart option
+- Proceed to checkout button
+- Empty cart state dengan call-to-action
 
 **URL**: `http://localhost:3000/cart`
 
 ---
 
-### 10. Halaman Checkout (Pelanggan)
-Halaman pesanan dan konfirmasi checkout.
+### 10. Checkout Page (Customer)
+Halaman checkout dan order confirmation.
 
-**Fitur**:
-- Ringkasan pesanan dengan semua item
-- Perhitungan harga total
-- Informasi pengiriman yang sudah diisi
-- Alamat pengiriman yang dapat diedit
-- Tombol buat pesanan
-- Tautan kembali ke keranjang
+**Features**:
+- Order summary berisi semua items
+- Total price calculation
+- Pre-filled shipping information
+- Editable shipping address
+- Place order button
+- Link kembali ke cart
 
 **URL**: `http://localhost:3000/orders/checkout`
 
 ---
 
-### 11. Riwayat Pesanan (Pelanggan)
-Daftar semua pesanan pelanggan.
+### 11. Order History (Customer)
+Halaman daftar semua orders milik customer.
 
-**Fitur**:
-- Kartu pesanan dengan nomor pesanan dan tanggal
-- Lencana status (pending, processing, completed, cancelled)
-- Jumlah total per pesanan
-- Hitungan item dan pratinjau
-- Tautan lihat detail
-- Status kosong untuk tanpa pesanan
+**Features**:
+- Order cards dengan order number dan date
+- Status badges (pending, processing, completed, cancelled)
+- Total amount per order
+- Item count dan preview
+- Link ke order detail
+- Empty state untuk user tanpa order
 
 **URL**: `http://localhost:3000/orders`
 
 ---
 
-### 12. Detail Pesanan (Pelanggan)
-Tampilan terperinci tentang pesanan tertentu.
+### 12. Order Detail Page (Customer)
+Halaman detail untuk order tertentu.
 
-**Fitur**:
-- Nomor pesanan dan status
-- Tanggal pesanan
-- Daftar item yang dipesan dengan gambar
-- Jumlah item dan harga
-- Jumlah total
-- Informasi pengiriman
-- Tautan kembali ke pesanan
+**Features**:
+- Order number dan status
+- Order date
+- Ordered items list dengan product image
+- Item quantity dan price
+- Total amount
+- Shipping information
+- Link kembali ke orders page
 
 **URL**: `http://localhost:3000/orders/:id`
 
 ---
 
-### 13. Profil Pengguna (Pelanggan)
-Halaman manajemen profil pelanggan.
+### 13. User Profile (Customer)
+Halaman profile management untuk customer.
 
-**Fitur**:
-- Lihat dan edit informasi pribadi
-- Tampilan email (hanya baca)
-- Perbarui nama, telepon, dan alamat
-- Tampilan pesan kesuksesan/kesalahan
-- Tautan ke halaman ubah kata sandi
+**Features**:
+- View dan edit personal information
+- Email display (read-only)
+- Update name, phone, dan address
+- Success dan error messages
+- Link ke change password page
 
 **URL**: `http://localhost:3000/account/profile`
 
 ---
 
-### 14. Ubah Kata Sandi (Pelanggan)
-Fungsi ubah kata sandi untuk pelanggan.
+### 14. Change Password (Customer)
+Halaman untuk update password customer.
 
-**Fitur**:
-- Verifikasi kata sandi saat ini
-- Input kata sandi baru
-- Konfirmasi kata sandi
-- Tampilan pesan kesuksesan/kesalahan
-- Validasi kecocokan kata sandi
-- Tautan kembali ke profil
+**Features**:
+- Current password verification
+- New password input
+- Password confirmation
+- Success dan error messages
+- Password matching validation
+- Link kembali ke profile page
 
 **URL**: `http://localhost:3000/account/change-password`
 
@@ -768,19 +768,43 @@ Fungsi ubah kata sandi untuk pelanggan.
 }
 ```
 
-**Deskripsi Dependensi**:
+## Dependency Description
 
-- **@nestjs/common**: Fungsi kerangka NestJS inti
-- **@nestjs/core**: Modul inti NestJS
-- **@nestjs/platform-express**: Adaptor platform Express untuk NestJS
-- **@nestjs/config**: Modul konfigurasi untuk variabel lingkungan
-- **@prisma/client**: Klien ORM Prisma untuk operasi database
-- **bcrypt**: Pustaka hashing kata sandi
-- **body-parser**: Middleware penguraian badan permintaan HTTP
-- **express-session**: Middleware sesi untuk Express
-- **hbs**: Mesin tampilan Handlebars
-- **reflect-metadata**: API refleksi metadata
-- **rxjs**: Ekstensi reaktif untuk JavaScript
+Berikut adalah daftar dependency utama yang digunakan dalam project ini beserta fungsinya:
+
+- **@nestjs/common**  
+  Menyediakan core utilities dan decorators yang digunakan di seluruh NestJS application.
+
+- **@nestjs/core**  
+  Modul inti NestJS yang menangani application lifecycle dan dependency injection.
+
+- **@nestjs/platform-express**  
+  Express platform adapter yang memungkinkan NestJS berjalan di atas Express.
+
+- **@nestjs/config**  
+  Module untuk mengelola environment variables dan application configuration.
+
+- **@prisma/client**  
+  Prisma ORM client yang digunakan untuk database access dan query operations.
+
+- **bcrypt**  
+  Library untuk hashing dan verifikasi password.
+
+- **body-parser**  
+  Middleware untuk parsing HTTP request body (JSON dan URL-encoded).
+
+- **express-session**  
+  Session middleware untuk mengelola user session berbasis Express.
+
+- **hbs**  
+  Handlebars view engine untuk server-side rendering (SSR).
+
+- **reflect-metadata**  
+  Metadata reflection API yang dibutuhkan oleh decorators di TypeScript dan NestJS.
+
+- **rxjs**  
+  Reactive Extensions for JavaScript yang digunakan untuk asynchronous programming dan data streams.
+
 
 ### Dependensi Pengembangan
 
@@ -801,14 +825,28 @@ Fungsi ubah kata sandi untuk pelanggan.
 }
 ```
 
-**Deskripsi Dependensi Pengembangan**:
+## Development Dependency Description
 
-- **@nestjs/cli**: Antarmuka baris perintah NestJS
-- **@nestjs/schematics**: Skema pembuatan kode
-- **@types/\***: Definisi jenis TypeScript
-- **prisma**: CLI Prisma dan manajemen skema
-- **ts-node**: Mesin eksekusi TypeScript
-- **typescript**: Kompiler TypeScript
+Berikut adalah daftar development dependencies yang digunakan selama proses pengembangan aplikasi:
+
+- **@nestjs/cli**  
+  NestJS Command Line Interface yang digunakan untuk generate project, module, controller, dan service.
+
+- **@nestjs/schematics**  
+  Code schematics untuk membantu pembuatan struktur dan boilerplate code NestJS.
+
+- **@types/\***  
+  TypeScript type definitions untuk berbagai library JavaScript agar mendukung type checking.
+
+- **prisma**  
+  Prisma CLI yang digunakan untuk schema management, migration, dan database tooling.
+
+- **ts-node**  
+  TypeScript execution engine yang memungkinkan menjalankan file TypeScript secara langsung.
+
+- **typescript**  
+  TypeScript compiler yang digunakan untuk transpiling kode TypeScript ke JavaScript.
+
 
 ### Menginstal Dependensi
 

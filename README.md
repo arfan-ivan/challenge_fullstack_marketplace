@@ -217,45 +217,84 @@ Fitur-fitur yang tersedia untuk mendukung keseluruhan sistem:
 
 ### Instalasi Langkah demi Langkah
 
-1. Kloning repositori
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal.
+
+---
+
+**1. Kloning repositori**
+
 ```bash
 git clone https://github.com/arfan-ivan/challenge_fullstack_marketplace.git
 cd challenge_fullstack_marketplace
 ```
 
-2. Instal dependensi
+---
+
+**2. Instal dependensi**
+
 ```bash
 npm install
 ```
 
-3. Buat database MySQL
+---
+
+**3. Buat database MySQL**
+
+Masuk ke MySQL dan buat database baru:
+
 ```bash
 mysql -u root -p
 CREATE DATABASE marketplace_db;
 EXIT;
 ```
 
-4. Konfigurasi variabel lingkungan
+---
+
+**4. Konfigurasi variabel lingkungan**
+
+Salin file environment dan sesuaikan isinya dengan konfigurasi database lokal Anda:
+
 ```bash
 cp .env.example .env
 ```
 
-5. Hasilkan Prisma Client
+Pastikan nilai `DATABASE_URL` di file `.env` sudah benar.
+
+---
+
+**5. Jalankan migrasi database**
+
+Perintah ini akan:
+
+* Membuat file migration
+* Menjalankan migration ke database
+* Menghasilkan Prisma Client secara otomatis
+
 ```bash
-npm run prisma:generate
+npx prisma migrate dev
 ```
 
-6. Jalankan migrasi database
-```bash
-npm run prisma:migrate
-```
+---
 
-7. Tanam database (opsional)
+**6. Seed database (opsional)**
+
+Jika tersedia data awal (seed), jalankan perintah berikut:
+
 ```bash
 npm run prisma:seed
 ```
 
 ---
+
+***Catatan***
+
+* Tidak perlu menjalankan `prisma generate` secara manual karena sudah dijalankan otomatis oleh `prisma migrate dev`.
+* Untuk environment production, gunakan:
+
+```bash
+npx prisma migrate deploy
+```
+
 
 ## Konfigurasi
 

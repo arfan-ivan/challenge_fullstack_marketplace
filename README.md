@@ -508,7 +508,7 @@ POST /admin/products/:id/delete
   - Lihat dasbor dengan statistik
   - Cari penjual dan produk
 - **Kredensial Default** (dari seed):
-  - Email: admin@marketplace.com
+  - Email: admin@gmail.com
   - Kata Sandi: admin123
 
 ### Peran Pelanggan

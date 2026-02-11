@@ -20,12 +20,12 @@
               "urlencoded": [
                 {
                   "key": "email",
-                  "value": "customer.test@example.com",
+                  "value": "test@gmail.com",
                   "type": "text"
                 },
                 {
                   "key": "password",
-                  "value": "customer123",
+                  "value": "",
                   "type": "text"
                 },
                 {
@@ -935,13 +935,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/account/change-password",
+              "raw": "{{base_url}}/account/change_password",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
                 "account",
-                "change-password"
+                "change_password"
               ]
             }
           },
@@ -974,13 +974,13 @@
               ]
             },
             "url": {
-              "raw": "{{base_url}}/account/change-password",
+              "raw": "{{base_url}}/account/change_password",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
                 "account",
-                "change-password"
+                "change_password"
               ]
             }
           },
@@ -1017,10 +1017,9 @@
   ],
   "variable": [
     {
-      "id": "b6c32047-2996-4646-9b51-4bbc54469243",
+      "id": "bd09bce6-7270-4564-b3c9-d915e3fef3d6",
       "key": "base_url",
-      "value": "http://localhost:3000",
-      "type": "string"
+      "value": "http://localhost:3000"
     }
   ]
 }

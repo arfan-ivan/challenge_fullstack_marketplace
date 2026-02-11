@@ -11,7 +11,7 @@
 - [Struktur Proyek](#struktur-proyek)
 - [Titik Akhir API](#titik-akhir-api)
 - [Peran Pengguna](#peran-pengguna)
-- [Tangkapan Layar](#tangkapan-layar)
+- [Tangkapan Layar](#screenshots)
 - [Dependensi](#dependensi)
 - [Panduan Pengembangan](#panduan-pengembangan)
 - [Pengujian](#pengujian)
@@ -535,7 +535,7 @@ Pelanggan dapat mendaftar secara mandiri melalui endpoint berikut:
 
 ---
 
-## Screenshots
+## screenshots
 
 ### 1. Landing Page
 Halaman utama katalog produk yang dapat diakses oleh semua users. Menampilkan daftar produk dalam layout grid yang responsif, lengkap dengan fitur search.
@@ -548,6 +548,8 @@ Halaman utama katalog produk yang dapat diakses oleh semua users. Menampilkan da
 - Role-based navigation (login/logout, admin/customer)
 
 **URL**: `http://localhost:3000/`
+
+![GAMBAR PREVIEW](public/11211.png)
 
 ---
 
@@ -563,6 +565,8 @@ Halaman authentication untuk admin dan customer.
 
 **URL**: `http://localhost:3000/auth/login`
 
+![GAMBAR PREVIEW](public/11221.png)
+
 ---
 
 ### 3. Registration Page
@@ -575,6 +579,8 @@ Halaman pendaftaran untuk customer baru.
 - Link ke login page untuk existing users
 
 **URL**: `http://localhost:3000/auth/register`
+
+![GAMBAR PREVIEW](public/11222.png)
 
 ---
 
@@ -590,6 +596,8 @@ Overview page untuk administrator yang menampilkan ringkasan sistem dan recent a
 
 **URL**: `http://localhost:3000/admin/dashboard`
 
+![GAMBAR PREVIEW](public/11223.png)
+
 ---
 
 ### 5. Seller Management (Admin)
@@ -603,6 +611,8 @@ Admin interface untuk mengelola data sellers.
 - Button untuk create new seller
 
 **URL**: `http://localhost:3000/admin/sellers`
+
+![GAMBAR PREVIEW](public/11243.png)
 
 ---
 
@@ -618,6 +628,7 @@ Halaman detail untuk melihat informasi seller dan daftar produknya.
 
 **URL**: `http://localhost:3000/admin/sellers/:id`
 
+![GAMBAR PREVIEW](public/11543.png)
 ---
 
 ### 7. Product Management (Admin)
@@ -632,6 +643,8 @@ Admin interface untuk mengelola data products.
 - CRUD operations: View, Edit, Delete
 
 **URL**: `http://localhost:3000/admin/products`
+
+![GAMBAR PREVIEW](public/11321.png)
 
 ---
 
@@ -655,6 +668,8 @@ Halaman detail product dengan actions yang berbeda berdasarkan user role.
 
 **URL**: `http://localhost:3000/products/:id`
 
+![GAMBAR PREVIEW](public/12321.png)
+
 ---
 
 ### 9. Shopping Cart (Customer)
@@ -671,6 +686,8 @@ Halaman cart untuk customer.
 
 **URL**: `http://localhost:3000/cart`
 
+![GAMBAR PREVIEW](public/22321.png)
+
 ---
 
 ### 10. Checkout Page (Customer)
@@ -686,6 +703,8 @@ Halaman checkout dan order confirmation.
 
 **URL**: `http://localhost:3000/orders/checkout`
 
+![GAMBAR PREVIEW](public/24421.png)
+
 ---
 
 ### 11. Order History (Customer)
@@ -700,6 +719,8 @@ Halaman daftar semua orders milik customer.
 - Empty state untuk user tanpa order
 
 **URL**: `http://localhost:3000/orders`
+
+![GAMBAR PREVIEW](public/24551.png)
 
 ---
 

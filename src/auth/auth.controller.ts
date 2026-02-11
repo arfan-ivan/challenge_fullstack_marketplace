@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
 
   @Get('login')
   @Render('auth/login')
@@ -12,9 +12,9 @@ export class AuthController {
     if (session.user) {
       return { redirect: session.user.role === 'admin' ? '/admin/dashboard' : '/' };
     }
-    return { 
+    return {
       title: 'Login - Marketplace',
-      error: null 
+      error: null
     };
   }
 
@@ -27,14 +27,14 @@ export class AuthController {
     try {
       const user = await this.authService.login(body.email, body.password);
       session.user = user;
-      
+
       if (user.role === 'admin') {
         return res.redirect('/admin/dashboard');
       } else {
         return res.redirect('/');
       }
     } catch (error) {
-      return res.render('auth/login', {
+      return res.status(401).render('auth/login', {
         title: 'Login - Marketplace',
         error: 'Invalid email or password',
       });
@@ -47,9 +47,9 @@ export class AuthController {
     if (session.user) {
       return { redirect: session.user.role === 'admin' ? '/admin/dashboard' : '/' };
     }
-    return { 
+    return {
       title: 'Register - Marketplace',
-      error: null 
+      error: null
     };
   }
 
@@ -61,19 +61,19 @@ export class AuthController {
   ) {
     try {
       const user = await this.authService.createUser(
-        body.email, 
-        body.password, 
+        body.email,
+        body.password,
         body.name,
         body.phone,
         body.address
       );
-      
+
       const { password, ...userWithoutPassword } = user;
       session.user = userWithoutPassword;
-      
+
       return res.redirect('/');
     } catch (error) {
-      return res.render('auth/register', {
+      return res.status(400).render('auth/register', {
         title: 'Register - Marketplace',
         error: error.message || 'Registration failed. Email might already exist.',
       });

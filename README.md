@@ -16,8 +16,6 @@
 - [Panduan Pengembangan](#panduan-pengembangan)
 - [Pengujian](#pengujian)
 - [Deployment](#deployment)
-- [Berkontribusi](#berkontribusi)
-- [Lisensi](#lisensi)
 
 ---
 
@@ -39,50 +37,68 @@ Platform E-Commerce Marketplace adalah pasar online lengkap yang dibangun dengan
 ## Fitur
 
 ### Fitur Pelanggan
-- Pendaftaran dan autentikasi pengguna
-- Jelajahi katalog produk dengan pencarian
-- Lihat informasi produk secara terperinci
-- Tambahkan produk ke keranjang belanja
-- Perbarui jumlah keranjang
-- Checkout dan buat pesanan
-- Lihat riwayat pesanan
-- Kelola profil pengguna
-- Ubah kata sandi
+Pengguna dapat menggunakan aplikasi sebagai pelanggan dengan kemampuan berikut:
+- Melakukan pendaftaran akun dan masuk ke sistem
+- Menjelajahi katalog produk yang tersedia dengan fitur pencarian
+- Melihat informasi produk secara detail
+- Menambahkan produk ke dalam keranjang belanja
+- Mengubah jumlah produk di dalam keranjang
+- Melakukan proses checkout dan membuat pesanan
+- Melihat riwayat pesanan yang telah dibuat
+- Mengelola data profil pengguna
+- Mengubah kata sandi akun
 
 ### Fitur Admin
-- Dasbor admin yang aman
-- Kelola penjual (Buat, Baca, Perbarui, Hapus)
-- Kelola produk (Buat, Baca, Perbarui, Hapus)
-- Lihat statistik dan aktivitas terbaru
-- Fungsi pencarian untuk penjual dan produk
+Admin memiliki akses khusus untuk mengelola sistem melalui dasbor, dengan fitur:
+- Akses dasbor admin yang aman
+- Mengelola data penjual (menambah, melihat, memperbarui, dan menghapus)
+- Mengelola data produk (menambah, melihat, memperbarui, dan menghapus)
+- Melihat statistik sistem serta aktivitas terbaru
+- Melakukan pencarian data penjual dan produk
 
 ### Fitur Umum
-- Autentikasi berbasis sesi
-- Rendering sisi server dengan Handlebars
-- Antarmuka responsif dengan Tailwind CSS
-- Navigasi dan elemen UI berbasis peran
-- Navigasi kembali dinamis berdasarkan konteks pengguna
+Fitur-fitur yang tersedia untuk mendukung keseluruhan sistem:
+- Autentikasi pengguna berbasis sesi
+- Rendering sisi server menggunakan Handlebars
+- Antarmuka responsif menggunakan Tailwind CSS
+- Navigasi dan elemen antarmuka yang menyesuaikan peran pengguna
+- Navigasi kembali yang bersifat dinamis sesuai konteks pengguna
 
 ---
 
 ## Teknologi yang Digunakan
 
 ### Backend
-- **Framework**: NestJS 10.x (kerangka kerja Node.js)
-- **Bahasa**: TypeScript 5.x
-- **ORM**: Prisma 5.x
+- **Framework**: NestJS 11.x  
+  Framework Node.js untuk membangun aplikasi backend yang terstruktur dan modular
+- **Bahasa Pemrograman**: TypeScript 5.x
+- **ORM**: Prisma 5.x  
+  Digunakan untuk pemodelan database dan manajemen query
 - **Database**: MySQL 8.x
-- **Autentikasi**: bcrypt untuk hashing kata sandi, express-session untuk manajemen sesi
+- **Autentikasi & Keamanan**:
+  - `bcrypt` untuk hashing kata sandi
+  - `express-session` untuk manajemen sesi pengguna
+
+---
 
 ### Frontend
-- **Mesin Template**: Handlebars (hbs)
-- **Kerangka CSS**: Tailwind CSS (melalui CDN)
-- **Rendering**: Rendering Sisi Server (SSR)
+- **Mesin Template**: Handlebars (`hbs`)
+- **Framework CSS**: Tailwind CSS 3.x
+- **Rendering**: Server-Side Rendering (SSR)
+- **Pendekatan UI**: Antarmuka berbasis peran (admin dan pelanggan)
 
-### Alat Pengembangan
+---
+
+### Alat dan Lingkungan Pengembangan
 - **Manajer Paket**: npm
-- **Alat Build**: NestJS CLI
-- **GUI Database**: Prisma Studio
+- **Build Tool**: NestJS CLI
+- **Testing**: Jest (unit test dan end-to-end test)
+- **Linting & Formatting**:
+  - ESLint
+  - Prettier
+- **Database Tools**:
+  - Prisma Migrate
+  - Prisma Studio untuk visualisasi dan manajemen data
 
 ---
 
@@ -92,72 +108,72 @@ Platform E-Commerce Marketplace adalah pasar online lengkap yang dibangun dengan
 
 ![Homepage](public/Untitled.svg)
 
-### Skema Database
+### Database Schema
 
-#### Tabel Users
-- **id**: Integer, Kunci Utama, Auto-increment
-- **email**: String, Unik, Diperlukan
-- **password**: String, Diperlukan (di-hash dengan bcrypt)
-- **name**: String, Diperlukan
-- **role**: String, Default: 'customer' (admin atau customer)
-- **phone**: String, Dapat Kosong
-- **address**: Text, Dapat Kosong
-- **createdAt**: DateTime, Otomatis dihasilkan
-- **updatedAt**: DateTime, Otomatis diperbarui
+#### Users Table
+- **id**: Integer, Primary Key, Auto-increment
+- **email**: String, Unique, Required
+- **password**: String, Required (bcrypt hashed)
+- **name**: String, Required
+- **role**: String, Default: 'customer' (admin or customer)
+- **phone**: String, Nullable
+- **address**: Text, Nullable
+- **createdAt**: DateTime, Auto-generated
+- **updatedAt**: DateTime, Auto-updated
 
-#### Tabel Sellers
-- **id**: Integer, Kunci Utama, Auto-increment
-- **name**: String, Diperlukan
-- **email**: String, Unik, Diperlukan
-- **phone**: String, Diperlukan
-- **address**: Text, Diperlukan
-- **description**: Text, Dapat Kosong
-- **createdAt**: DateTime, Otomatis dihasilkan
-- **updatedAt**: DateTime, Otomatis diperbarui
+#### Sellers Table
+- **id**: Integer, Primary Key, Auto-increment
+- **name**: String, Required
+- **email**: String, Unique, Required
+- **phone**: String, Required
+- **address**: Text, Required
+- **description**: Text, Nullable
+- **createdAt**: DateTime, Auto-generated
+- **updatedAt**: DateTime, Auto-updated
 
-#### Tabel Products
-- **id**: Integer, Kunci Utama, Auto-increment
-- **name**: String, Diperlukan
-- **description**: Text, Diperlukan
-- **price**: Decimal(10,2), Diperlukan
+#### Products Table
+- **id**: Integer, Primary Key, Auto-increment
+- **name**: String, Required
+- **description**: Text, Required
+- **price**: Decimal(10,2), Required
 - **stock**: Integer, Default: 0
-- **category**: String, Diperlukan
-- **imageUrl**: String, Dapat Kosong
-- **sellerId**: Integer, Kunci Asing (referensi ke Sellers)
-- **createdAt**: DateTime, Otomatis dihasilkan
-- **updatedAt**: DateTime, Otomatis diperbarui
+- **category**: String, Required
+- **imageUrl**: String, Nullable
+- **sellerId**: Integer, Foreign Key (references Sellers)
+- **createdAt**: DateTime, Auto-generated
+- **updatedAt**: DateTime, Auto-updated
 
-#### Tabel Carts
-- **id**: Integer, Kunci Utama, Auto-increment
-- **userId**: Integer, Kunci Asing (referensi ke Users), Unik
-- **createdAt**: DateTime, Otomatis dihasilkan
-- **updatedAt**: DateTime, Otomatis diperbarui
+#### Carts Table
+- **id**: Integer, Primary Key, Auto-increment
+- **userId**: Integer, Foreign Key (references Users), Unique
+- **createdAt**: DateTime, Auto-generated
+- **updatedAt**: DateTime, Auto-updated
 
-#### Tabel CartItems
-- **id**: Integer, Kunci Utama, Auto-increment
-- **cartId**: Integer, Kunci Asing (referensi ke Carts)
-- **productId**: Integer, Kunci Asing (referensi ke Products)
+#### CartItems Table
+- **id**: Integer, Primary Key, Auto-increment
+- **cartId**: Integer, Foreign Key (references Carts)
+- **productId**: Integer, Foreign Key (references Products)
 - **quantity**: Integer, Default: 1
-- **createdAt**: DateTime, Otomatis dihasilkan
-- **updatedAt**: DateTime, Otomatis diperbarui
-- **Batasan Unik**: (cartId, productId)
+- **createdAt**: DateTime, Auto-generated
+- **updatedAt**: DateTime, Auto-updated
+- **Unique Constraint**: (cartId, productId)
 
-#### Tabel Orders
-- **id**: Integer, Kunci Utama, Auto-increment
-- **userId**: Integer, Kunci Asing (referensi ke Users)
-- **totalAmount**: Decimal(10,2), Diperlukan
+#### Orders Table
+- **id**: Integer, Primary Key, Auto-increment
+- **userId**: Integer, Foreign Key (references Users)
+- **totalAmount**: Decimal(10,2), Required
 - **status**: String, Default: 'pending' (pending, processing, completed, cancelled)
-- **shippingAddress**: Text, Diperlukan
-- **createdAt**: DateTime, Otomatis dihasilkan
-- **updatedAt**: DateTime, Otomatis diperbarui
+- **shippingAddress**: Text, Required
+- **createdAt**: DateTime, Auto-generated
+- **updatedAt**: DateTime, Auto-updated
 
-#### Tabel OrderItems
-- **id**: Integer, Kunci Utama, Auto-increment
-- **orderId**: Integer, Kunci Asing (referensi ke Orders)
-- **productId**: Integer, Kunci Asing (referensi ke Products)
-- **quantity**: Integer, Diperlukan
-- **price**: Decimal(10,2), Diperlukan (snapshot harga saat pemesanan)
-- **createdAt**: DateTime, Otomatis dihasilkan
+#### OrderItems Table
+- **id**: Integer, Primary Key, Auto-increment
+- **orderId**: Integer, Foreign Key (references Orders)
+- **productId**: Integer, Foreign Key (references Products)
+- **quantity**: Integer, Required
+- **price**: Decimal(10,2), Required (snapshot of price at order time)
+- **createdAt**: DateTime, Auto-generated
 
 ### Relasi Antar Entitas
 
@@ -784,19 +800,22 @@ npm audit fix
 
 ## Panduan Pengembangan
 
-### Gaya Kode dan Konvensi
+## Gaya Kode dan Konvensi
 
-**TypeScript**:
-- Gunakan mode ketat TypeScript
-- Lebih suka interface daripada jenis untuk bentuk objek
-- Gunakan async/await daripada janji
-- Ikuti konvensi penamaan NestJS
+Proyek ini mengikuti gaya penulisan kode yang konsisten agar mudah dipahami, dirawat, dan dikembangkan bersama.
 
-**Penamaan File**:
-- Kontroler: `*.controller.ts`
-- Layanan: `*.service.ts`
-- Modul: `*.module.ts`
-- Tampilan: `*.hbs`
+### TypeScript
+- Menggunakan mode ketat TypeScript untuk menjaga kualitas dan keamanan kode
+- Mengutamakan penggunaan `interface` dibandingkan `type` untuk mendefinisikan bentuk objek
+- Menggunakan `async/await` agar alur kode asinkron lebih mudah dibaca
+- Mengikuti konvensi penamaan dan struktur yang direkomendasikan oleh NestJS
+
+### Penamaan File
+Penamaan file dibuat konsisten untuk memudahkan navigasi dan pemeliharaan kode:
+- Controller: `*.controller.ts`
+- Service: `*.service.ts`
+- Module: `*.module.ts`
+- Template tampilan: `*.hbs`
 
 **Struktur Modul**:
 ```
@@ -888,45 +907,47 @@ await app.listen(3001);
 
 ### Daftar Periksa Pengujian Manual
 
-**Autentikasi**:
-- Daftarkan akun pelanggan baru
-- Login sebagai pelanggan
-- Login sebagai admin
-- Fungsi logout
-- Persistensi sesi
-- Akses rute terlindungi
+Bagian ini berisi skenario pengujian manual untuk memastikan seluruh fitur utama aplikasi berjalan dengan baik sesuai perannya.
 
-**Fitur Pelanggan**:
-- Jelajahi produk di halaman mendarat
-- Cari produk
-- Lihat detail produk
-- Tambahkan produk ke keranjang
-- Perbarui jumlah keranjang
-- Hapus item dari keranjang
-- Proses checkout
-- Lihat riwayat pesanan
-- Lihat detail pesanan
-- Perbarui informasi profil
-- Ubah kata sandi
+**Autentikasi**
+- Mendaftarkan akun pelanggan baru
+- Masuk ke sistem sebagai pelanggan
+- Masuk ke sistem sebagai admin
+- Keluar dari sistem (logout)
+- Memastikan sesi pengguna tersimpan dengan benar
+- Memastikan akses ke rute yang dilindungi dibatasi sesuai peran
 
-**Fitur Admin**:
-- Lihat statistik dasbor
-- Buat penjual baru
-- Edit informasi penjual
-- Hapus penjual (hapus cascade produk)
-- Lihat detail penjual
-- Cari penjual
-- Buat produk baru
-- Edit informasi produk
-- Hapus produk
-- Cari produk
+**Fitur Pelanggan**
+- Menjelajahi daftar produk pada halaman utama
+- Mencari produk menggunakan fitur pencarian
+- Melihat detail produk
+- Menambahkan produk ke dalam keranjang
+- Mengubah jumlah produk di keranjang
+- Menghapus produk dari keranjang
+- Melakukan proses checkout
+- Melihat riwayat pesanan
+- Melihat detail pesanan
+- Memperbarui informasi profil pengguna
+- Mengubah kata sandi akun
 
-**UI/UX**:
+**Fitur Admin**
+- Melihat statistik dan ringkasan pada dasbor admin
+- Menambahkan data penjual baru
+- Mengubah informasi penjual
+- Menghapus penjual beserta produk terkait
+- Melihat detail penjual
+- Mencari data penjual
+- Menambahkan produk baru
+- Mengubah informasi produk
+- Menghapus produk
+- Mencari data produk
+
+**Antarmuka Pengguna (UI/UX)**
 - Navigasi berbasis peran ditampilkan dengan benar
-- Desain responsif di perangkat seluler
-- Pesan validasi formulir
-- Pemberitahuan kesuksesan/kesalahan
-- Navigasi tombol kembali berfungsi dengan benar
+- Tampilan aplikasi responsif pada perangkat desktop dan seluler
+- Pesan validasi formulir ditampilkan dengan jelas
+- Notifikasi keberhasilan dan kesalahan muncul sesuai kondisi
+- Tombol navigasi kembali berfungsi dengan baik
 
 ### Data Pengujian
 
@@ -935,40 +956,28 @@ await app.listen(3001);
 Email: admin@gmail.com
 Kata Sandi: admin123
 ```
-
-**Penjual Sampel** (dari seed):
-- John Doe Electronics
-- Fashion Store Indo
-- Food Market Semarang
-
-**Produk Sampel** (dari seed):
-- 3 produk Elektronik
-- 3 produk Fashion
-- 3 produk Makanan
-
 ---
-
 ## Deployment
 
-### Prasyarat untuk Produksi
-
-1. Database MySQL siap produksi
-2. Lingkungan hosting Node.js
-3. Sertifikat SSL untuk HTTPS
-4. Variabel lingkungan dikonfigurasi
+### Prasyarat Produksi
+Sebelum aplikasi dijalankan di lingkungan produksi, pastikan beberapa kebutuhan berikut telah tersedia:
+1. Database MySQL yang siap digunakan untuk lingkungan produksi
+2. Lingkungan hosting yang mendukung Node.js
+3. Sertifikat SSL untuk mengaktifkan koneksi HTTPS
+4. Variabel lingkungan (environment variables) telah dikonfigurasi dengan benar
 
 ### Daftar Periksa Produksi
-
-- Atur JWT_SECRET dan SESSION_SECRET yang kuat
-- Konfigurasi koneksi database produksi
-- Atur NODE_ENV ke "production"
-- Aktifkan HTTPS
-- Konfigurasi CORS jika diperlukan
-- Atur Redis untuk penyimpanan sesi (direkomendasikan)
-- Konfigurasi pembatasan laju
-- Atur logging dan monitoring
-- Konfigurasi strategi backup
-- Atur pipeline CI/CD
+Hal-hal berikut perlu diperhatikan untuk memastikan aplikasi berjalan dengan aman dan stabil di lingkungan produksi:
+- Menggunakan nilai `JWT_SECRET` dan `SESSION_SECRET` yang kuat
+- Mengonfigurasi koneksi ke database produksi
+- Mengatur `NODE_ENV` ke mode `production`
+- Mengaktifkan HTTPS pada server
+- Mengonfigurasi CORS apabila aplikasi diakses lintas domain
+- Menggunakan Redis sebagai penyimpanan sesi (direkomendasikan)
+- Menerapkan pembatasan laju permintaan (rate limiting)
+- Menyiapkan sistem logging dan monitoring
+- Mengonfigurasi strategi pencadangan (backup) data
+- Menyiapkan pipeline CI/CD untuk proses deploy yang lebih terkontrol
 
 ### Variabel Lingkungan untuk Produksi
 
@@ -1056,42 +1065,6 @@ docker-compose up -d
 
 ---
 
-## Berkontribusi
-
-### Cara Berkontribusi
-
-1. Fork repositori
-2. Buat cabang fitur (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan Anda (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke cabang (`git push origin feature/AmazingFeature`)
-5. Buka Permintaan Tarik
-
-### Standar Pengodean
-
-- Ikuti praktik terbaik TypeScript dan NestJS
-- Tulis pesan commit yang bermakna
-- Tambahkan komentar untuk logika yang kompleks
-- Perbarui dokumentasi untuk fitur baru
-- Uji perubahan Anda secara menyeluruh
-
-### Melaporkan Masalah
-
-Saat melaporkan masalah, sertakan:
-- Deskripsi jelas tentang masalahnya
-- Langkah untuk mereproduksi
-- Perilaku yang diharapkan
-- Perilaku aktual
-- Tangkapan layar jika berlaku
-- Detail lingkungan (OS, versi Node, dll.)
-
----
-
-## Lisensi
-
-Proyek ini dilisensikan di bawah Lisensi MIT.
-
----
-
 ## Informasi Tambahan
 
 ### Manajemen Sesi
@@ -1121,55 +1094,75 @@ app.use(
 );
 ```
 
-### Pertimbangan Keamanan
+## Pertimbangan Keamanan
 
-1. **Keamanan Kata Sandi**: Kata sandi di-hash menggunakan bcrypt dengan 10 putaran garam
-2. **Keamanan Sesi**: Sesi berakhir setelah 1 jam tidak aktif
-3. **SQL Injection**: Dicegah oleh kueri berparameter Prisma
-4. **XSS Protection**: Handlebars secara otomatis menghindari output
-5. **CSRF**: Pertimbangkan untuk menambahkan perlindungan CSRF untuk produksi
+Beberapa aspek keamanan telah diterapkan untuk melindungi data dan aktivitas pengguna:
+- **Keamanan kata sandi**  
+  Kata sandi pengguna disimpan dalam bentuk hash menggunakan `bcrypt` dengan 10 salt rounds.
+- **Manajemen sesi**  
+  Sesi pengguna akan berakhir setelah 1 jam tidak ada aktivitas.
+- **Perlindungan terhadap SQL Injection**  
+  Seluruh akses database menggunakan query berparameter melalui Prisma.
+- **Perlindungan XSS**  
+  Handlebars secara default melakukan escaping pada output untuk mencegah serangan XSS.
+- **CSRF**  
+  Untuk penggunaan di lingkungan produksi, disarankan menambahkan mekanisme perlindungan CSRF.
 
-### Optimasi Kinerja
+---
 
-1. **Pengindeksan Database**: Kolom email diindeks untuk pencarian lebih cepat
-2. **Optimasi Kueri**: Gunakan `include` dan `select` Prisma untuk kueri efisien
-3. **Caching**: Pertimbangkan implementasi caching Redis untuk data yang sering diakses
-4. **Aset Statis**: Pertimbangkan menggunakan CDN untuk Tailwind CSS dalam produksi
+## Optimasi Kinerja
 
-### Peningkatan Masa Depan
+Beberapa pendekatan dilakukan dan dipertimbangkan untuk menjaga performa aplikasi:
+- **Pengindeksan database**  
+  Kolom email diindeks untuk mempercepat proses pencarian dan autentikasi.
+- **Optimasi query**  
+  Penggunaan fitur `select` dan `include` pada Prisma untuk mengambil data yang diperlukan saja.
+- **Caching**  
+  Implementasi caching menggunakan Redis direkomendasikan untuk data yang sering diakses.
+- **Aset statis**  
+  Pada lingkungan produksi, penggunaan CDN untuk aset statis dapat membantu meningkatkan waktu muat halaman.
 
-Fitur potensial untuk pengembangan di masa depan:
+---
+
+## Peningkatan di Masa Depan
+
+Beberapa fitur yang dapat dikembangkan pada tahap selanjutnya antara lain:
 - Manajemen stok dengan pengurangan otomatis
-- Integrasi gateway pembayaran
-- Notifikasi email untuk pesanan
-- Ulasan dan peringkat produk
-- Fungsi wishlist
+- Integrasi payment gateway
+- Notifikasi email untuk status pesanan
+- Sistem ulasan dan peringkat produk
+- Fitur wishlist
 - Pencarian lanjutan dengan filter
 - Dukungan multi-bahasa
 - Sistem pelacakan pesanan
-- Manajemen pesanan admin
+- Manajemen pesanan untuk admin
 - Analitik dan pelaporan
-- Varian produk (ukuran, warna)
+- Varian produk (misalnya ukuran dan warna)
 - Sistem diskon dan kupon
 
-### Pemecahan Masalah
+---
 
-**Tidak dapat terhubung ke database**:
-- Verifikasi MySQL berjalan
-- Periksa DATABASE_URL di .env
-- Pastikan database ada
-- Periksa pengaturan firewall
+## Pemecahan Masalah
 
-**Kesalahan Prisma**:
-- Jalankan `npm run prisma:generate`
-- Periksa sintaks skema
-- Verifikasi koneksi database
+### Tidak dapat terhubung ke database
+- Pastikan layanan MySQL sedang berjalan
+- Periksa nilai `DATABASE_URL` pada file `.env`
+- Pastikan database sudah dibuat
+- Periksa pengaturan firewall atau akses jaringan
 
-**Port sudah digunakan**:
-- Ubah port di main.ts
-- Bunuh proses menggunakan port: `lsof -ti:3000 | xargs kill`
+### Kesalahan Prisma
+- Jalankan perintah `npx prisma generate`
+- Periksa sintaks pada file `schema.prisma`
+- Pastikan koneksi database valid
 
-**Sesi tidak bertahan**:
-- Periksa SESSION_SECRET diatur
-- Verifikasi pengaturan cookie
-- Pertimbangkan menggunakan Redis untuk produksi
+### Port sudah digunakan
+- Ubah port aplikasi pada `main.ts`
+- Hentikan proses yang menggunakan port tersebut:
+```bash
+lsof -ti:3000 | xargs kill
+```
+
+### Sesi tidak bertahan
+- Pastikan `SESSION_SECRET` telah diatur
+- Periksa konfigurasi cookie sesi
+- Pertimbangkan penggunaan Redis sebagai penyimpanan sesi di lingkungan produksi

@@ -68,8 +68,8 @@ export class AccountController {
     }
   }
 
-  @Get('change-password')
-  @Render('account/change-password')
+  @Get('change_password')
+  @Render('account/change_password')
   changePasswordPage(@Session() session: Record<string, any>) {
     if (!session.user) {
       return { redirect: '/auth/login' };
@@ -83,7 +83,7 @@ export class AccountController {
     };
   }
 
-  @Post('change-password')
+  @Post('change_password')
   async changePassword(
     @Body() body: { currentPassword: string; newPassword: string; confirmPassword: string },
     @Session() session: Record<string, any>,
@@ -117,14 +117,14 @@ export class AccountController {
         data: { password: hashedPassword },
       });
 
-      return res.render('account/change-password', {
+      return res.render('account/change_password', {
         title: 'Change Password',
         user: session.user,
         success: 'Password changed successfully!',
         error: null,
       });
     } catch (error) {
-      return res.render('account/change-password', {
+      return res.render('account/change_password', {
         title: 'Change Password',
         user: session.user,
         success: null,

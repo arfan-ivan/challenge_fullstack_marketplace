@@ -1,0 +1,1026 @@
+{
+  "info": {
+    "_postman_id": "8653af11-ac01-4517-8471-acb7a5b0402b",
+    "name": "Marketplace API Testing",
+    "description": "Complete API testing collection untuk Marketplace E-Commerce Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Authentication",
+      "item": [
+        {
+          "name": "Register Customer",
+          "id": "e3293801-ef63-4f36-bdab-f935c689a9bb",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "customer.test@example.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "customer123",
+                  "type": "text"
+                },
+                {
+                  "key": "name",
+                  "value": "Customer Test",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "+62-812-1234-5678",
+                  "type": "text"
+                },
+                {
+                  "key": "address",
+                  "value": "Jl. Testing No. 123, Jakarta",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Admin",
+          "id": "2f0912b4-30c3-4055-9ae2-4263c79b8407",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "admin@marketplace.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "admin123",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Customer",
+          "id": "61a86982-096a-4d41-b6b0-4630eb9cf1bb",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "customer.test@example.com",
+                  "type": "text"
+                },
+                {
+                  "key": "password",
+                  "value": "customer123",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "id": "f4f1f06d-2b18-4bef-8169-d03c52b64d98",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/auth/logout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "5609fe3c-82cf-41eb-be65-2dae1fedd28c"
+    },
+    {
+      "name": "2. Public",
+      "item": [
+        {
+          "name": "Landing Page",
+          "id": "b7e59c77-bbb1-46f6-80f1-256285cbdf68",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "5596b36c-a7ce-4040-8306-12dc5a06d64e"
+    },
+    {
+      "name": "3. Admin - Sellers",
+      "item": [
+        {
+          "name": "List All Sellers",
+          "id": "54a66e27-aae5-4255-8dc4-cdabd738a0a1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/sellers",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "sellers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Sellers",
+          "id": "61399bf1-acf1-422d-ac3f-457ffa95845d",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/sellers?search=John",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "sellers"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "John"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Create Seller Form",
+          "id": "1fe984e6-84b0-4b78-b23f-93583eee289b",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/sellers/create",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "sellers",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create New Seller",
+          "id": "a6842dfc-a50c-427b-9037-05386a33d27b",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Toko Elektronik Baru",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "elektronik.baru@example.com",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "+62-813-9999-8888",
+                  "type": "text"
+                },
+                {
+                  "key": "address",
+                  "value": "Jl. Elektronik No. 456, Bandung",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Toko elektronik terpercaya dengan harga kompetitif",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/sellers/create",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "sellers",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "View Seller Detail",
+          "id": "1fd448a1-0e8a-4242-8a0d-7506701a5fcb",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/sellers/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "sellers",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Edit Seller Form",
+          "id": "5c9bcfd2-adb7-4c94-8a50-f907c20ba4a8",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/sellers/1/edit",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "sellers",
+                "1",
+                "edit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Seller",
+          "id": "33a25793-ad57-4398-8a9b-002a14e3720a",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "John Doe Electronics Updated",
+                  "type": "text"
+                },
+                {
+                  "key": "email",
+                  "value": "johndoe@seller.com",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "+62-812-3456-7890",
+                  "type": "text"
+                },
+                {
+                  "key": "address",
+                  "value": "Jl. Sudirman No. 123, Jakarta Pusat (Updated)",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/sellers/1/edit",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "sellers",
+                "1",
+                "edit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Seller",
+          "id": "14febe02-99f7-445e-8427-72c273da6953",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/sellers/4/delete",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "sellers",
+                "4",
+                "delete"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "832bb68c-e8a7-493c-aac6-5799ce1b5475"
+    },
+    {
+      "name": "4. Admin - Products",
+      "item": [
+        {
+          "name": "List All Products",
+          "id": "6d069ad1-fef6-41a9-93b3-833724a4e999",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/products",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "products"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Products",
+          "id": "87758bc2-de80-42e7-aabd-027ad0df3dbe",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/products?search=Smartphone",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "products"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "Smartphone"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Create Product Form",
+          "id": "36d80f24-a49a-44a5-af92-c59a69cd4eae",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/products/create",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "products",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create New Product",
+          "id": "69d06820-5dae-44fc-b44c-eb04283870d0",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Tablet Samsung Galaxy Tab S9",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Tablet premium dengan layar AMOLED 11 inch dan S-Pen",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "6999000",
+                  "type": "text"
+                },
+                {
+                  "key": "stock",
+                  "value": "15",
+                  "type": "text"
+                },
+                {
+                  "key": "category",
+                  "value": "Electronics",
+                  "type": "text"
+                },
+                {
+                  "key": "imageUrl",
+                  "value": "https://images.unsplash.com/photo-1561154464-82e9adf32764",
+                  "type": "text"
+                },
+                {
+                  "key": "sellerId",
+                  "value": "1",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/products/create",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "products",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "View Product Detail",
+          "id": "51bd2780-ee09-4cc6-afd3-a7ab8a455c94",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/products/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "products",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Edit Product Form",
+          "id": "fa112373-da11-43f7-b313-f5672cb458a6",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/products/1/edit",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "products",
+                "1",
+                "edit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Product",
+          "id": "5c728b45-e2a2-440b-810d-0d14f9a633f0",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Smartphone Samsung Galaxy A54 (Updated)",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Updated description",
+                  "type": "text"
+                },
+                {
+                  "key": "price",
+                  "value": "5299000",
+                  "type": "text"
+                },
+                {
+                  "key": "stock",
+                  "value": "30",
+                  "type": "text"
+                },
+                {
+                  "key": "category",
+                  "value": "Electronics",
+                  "type": "text"
+                },
+                {
+                  "key": "sellerId",
+                  "value": "1",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/products/1/edit",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "products",
+                "1",
+                "edit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Product",
+          "id": "b19e9ddd-184d-4cb7-b3c0-b02f13133ad6",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/products/10/delete",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "products",
+                "10",
+                "delete"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "ffeb7f9b-c229-4fe7-a097-31fb8c84017a"
+    },
+    {
+      "name": "5. Customer - Shopping Cart",
+      "item": [
+        {
+          "name": "View Shopping Cart",
+          "id": "7de74a2d-9f38-4bea-9fdb-d85d2c6f1a41",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/cart",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cart"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Product to Cart",
+          "id": "75bf5afb-3bb4-4a01-928a-6334c9c53a82",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "quantity",
+                  "value": "2",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/cart/add/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cart",
+                "add",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Cart Item Quantity",
+          "id": "77d5c7fe-215d-4492-a64f-0deaad63ad63",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "quantity",
+                  "value": "5",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/cart/update/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cart",
+                "update",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove Item from Cart",
+          "id": "0286411c-b4e3-4382-b949-2571c1184a35",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/cart/remove/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cart",
+                "remove",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Clear Entire Cart",
+          "id": "95a5ef0c-f153-4156-bae8-77f07c1946ae",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/cart/clear",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cart",
+                "clear"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "bfc785d4-9247-4f6e-a16b-6f333fff2f51"
+    },
+    {
+      "name": "6. Customer - Orders",
+      "item": [
+        {
+          "name": "View Order History",
+          "id": "4e6ff6fa-c409-49a0-89a3-ee7bc230812e",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/orders",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Checkout Page",
+          "id": "191d78a3-458e-466e-9aea-e3273ea470e8",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/orders/checkout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "orders",
+                "checkout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Order",
+          "id": "212a1f65-b18f-48a4-9d21-2971dfbac957",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "shippingAddress",
+                  "value": "Jl. Pengiriman No. 789, Semarang, Jawa Tengah 50132",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/orders/checkout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "orders",
+                "checkout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "View Order Detail",
+          "id": "8f31287b-f3f3-429f-8819-3a0db48e6d18",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/orders/1",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "orders",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "e7150742-4166-4527-ab4b-ae71e812349d"
+    },
+    {
+      "name": "7. Customer - Account",
+      "item": [
+        {
+          "name": "View Profile",
+          "id": "4ee2e984-4ad6-4598-a1c8-0e75ddf9a291",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/account/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "account",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Profile",
+          "id": "82f93b0f-de52-4909-9128-4f3542b979d3",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "Customer Test Updated",
+                  "type": "text"
+                },
+                {
+                  "key": "phone",
+                  "value": "+62-812-9999-7777",
+                  "type": "text"
+                },
+                {
+                  "key": "address",
+                  "value": "Jl. Updated Address No. 999, Jakarta Selatan",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/account/profile",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "account",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Change Password Page",
+          "id": "f2b248d9-aa4c-4f37-80b7-6802a08b8496",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/account/change-password",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "account",
+                "change-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Password",
+          "id": "a3a9c045-04b7-4428-9787-b4e732de18fb",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "currentPassword",
+                  "value": "customer123",
+                  "type": "text"
+                },
+                {
+                  "key": "newPassword",
+                  "value": "newpassword123",
+                  "type": "text"
+                },
+                {
+                  "key": "confirmPassword",
+                  "value": "newpassword123",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/account/change-password",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "account",
+                "change-password"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "84ab8663-4da4-4c0e-a043-099b59ae78ce"
+    },
+    {
+      "name": "8. Admin - Dashboard",
+      "item": [
+        {
+          "name": "Admin Dashboard",
+          "id": "ebac3525-f77c-44c1-a2e7-4df4f54eb01f",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/admin/dashboard",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "dashboard"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "aecfb9b3-78f4-4f50-afa8-74e9480064e9"
+    }
+  ],
+  "variable": [
+    {
+      "id": "b6c32047-2996-4646-9b51-4bbc54469243",
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}

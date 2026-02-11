@@ -91,73 +91,8 @@ Platform E-Commerce Marketplace adalah pasar online lengkap yang dibangun dengan
 ### Diagram Hubungan Entitas
 
 ```
-+----------------+         +------------------+
-|     Users      |         |     Sellers      |
-+----------------+         +------------------+
-| id (PK)        |         | id (PK)          |
-| email          |         | name             |
-| password       |         | email            |
-| name           |         | phone            |
-| role           |         | address          |
-| phone          |         | description      |
-| address        |         | createdAt        |
-| createdAt      |         | updatedAt        |
-| updatedAt      |         +------------------+
-+----------------+                  |
-       |                            | 1
-       | 1                          |
-       |                            | N
-       | N                   +------------------+
-+----------------+           |    Products      |
-|     Carts      |           +------------------+
-+----------------+           | id (PK)          |
-| id (PK)        |           | name             |
-| userId (FK)    |           | description      |
-| createdAt      |           | price            |
-| updatedAt      |           | stock            |
-+----------------+           | category         |
-       |                     | imageUrl         |
-       | 1                   | sellerId (FK)    |
-       |                     | createdAt        |
-       | N                   | updatedAt        |
-+----------------+           +------------------+
-|   CartItems    |                  |
-+----------------+                  |
-| id (PK)        |                  |
-| cartId (FK)    |                  |
-| productId (FK) |------------------+
-| quantity       |
-| createdAt      |
-| updatedAt      |
-+----------------+
+![Homepage](public/Untitled(1).svg)
 
-       |
-       |
-+----------------+
-|     Orders     |
-+----------------+
-| id (PK)        |
-| userId (FK)    |
-| totalAmount    |
-| status         |
-| shippingAddress|
-| createdAt      |
-| updatedAt      |
-+----------------+
-       |
-       | 1
-       |
-       | N
-+----------------+
-|  OrderItems    |
-+----------------+
-| id (PK)        |
-| orderId (FK)   |
-| productId (FK) |
-| quantity       |
-| price          |
-| createdAt      |
-+----------------+
 ```
 
 ### Skema Database

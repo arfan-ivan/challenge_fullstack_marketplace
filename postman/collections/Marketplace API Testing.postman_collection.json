@@ -25,7 +25,7 @@
                 },
                 {
                   "key": "password",
-                  "value": "",
+                  "value": "customer123",
                   "type": "text"
                 },
                 {
@@ -35,12 +35,12 @@
                 },
                 {
                   "key": "phone",
-                  "value": "+62-812-1234-5678",
+                  "value": "1234567890",
                   "type": "text"
                 },
                 {
                   "key": "address",
-                  "value": "Jl. Testing No. 123, Jakarta",
+                  "value": "malang",
                   "type": "text"
                 }
               ]
@@ -69,12 +69,12 @@
               "urlencoded": [
                 {
                   "key": "email",
-                  "value": "admin@marketplace.com",
+                  "value": "arfanvn@gmail.com",
                   "type": "text"
                 },
                 {
                   "key": "password",
-                  "value": "admin123",
+                  "value": "4rfanivan777",
                   "type": "text"
                 }
               ]
@@ -103,7 +103,7 @@
               "urlencoded": [
                 {
                   "key": "email",
-                  "value": "customer.test@example.com",
+                  "value": "test@gmail.com",
                   "type": "text"
                 },
                 {
@@ -388,14 +388,14 @@
             "method": "POST",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/admin/sellers/4/delete",
+              "raw": "{{base_url}}/admin/sellers/13/delete",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
                 "admin",
                 "sellers",
-                "4",
+                "13",
                 "delete"
               ]
             }
@@ -636,14 +636,14 @@
             "method": "POST",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/admin/products/10/delete",
+              "raw": "{{base_url}}/admin/products/7/delete",
               "host": [
                 "{{base_url}}"
               ],
               "path": [
                 "admin",
                 "products",
-                "10",
+                "7",
                 "delete"
               ]
             }
@@ -1017,7 +1017,7 @@
   ],
   "variable": [
     {
-      "id": "bd09bce6-7270-4564-b3c9-d915e3fef3d6",
+      "id": "a55ba1f7-dfd3-4a8f-a80e-b95f27c424b9",
       "key": "base_url",
       "value": "http://localhost:3000"
     }

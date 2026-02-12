@@ -4,7 +4,7 @@ import { SellersService } from './sellers.service';
 
 @Controller('admin/sellers')
 export class SellersController {
-  constructor(private sellersService: SellersService) {}
+  constructor(private sellersService: SellersService) { }
 
   @Get()
   @Render('sellers/index')
@@ -46,6 +46,13 @@ export class SellersController {
       return { redirect: '/auth/login' };
     }
     const seller = await this.sellersService.findOne(parseInt(id));
+
+    if (!seller) {
+      return {
+        redirect: '/admin/sellers',
+        error: 'Seller not found',
+      };
+    }
     return {
       title: 'Seller Detail',
       seller,
@@ -60,6 +67,14 @@ export class SellersController {
       return { redirect: '/auth/login' };
     }
     const seller = await this.sellersService.findOne(parseInt(id));
+
+    if (!seller) {
+      return {
+        redirect: '/admin/sellers',
+        error: 'Seller not found',
+      };
+    }
+
     return {
       title: 'Edit Seller',
       seller,

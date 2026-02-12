@@ -72,10 +72,16 @@ export class AuthController {
       session.user = userWithoutPassword;
 
       return res.redirect('/');
-    } catch (error) {
+    } catch (error: any) {
+      let message = 'Registration failed';
+
+      if (error.code === 'P2002') {
+        message = 'Email already registered';
+      }
+
       return res.status(400).render('auth/register', {
         title: 'Register - Marketplace',
-        error: error.message || 'Registration failed. Email might already exist.',
+        error: message,
       });
     }
   }
